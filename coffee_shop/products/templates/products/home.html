@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="relative h-[650px] bg-cover bg-bottom flex items-center"
+         style="background-image: url('{% static "images/coffee-hero.jpg" %}')">
+
+    <!-- overlay oscuro -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 w-full">
+
+        <!-- CONTENEDOR DEL TEXTO -->
+        <div class="max-w-lg text-white">
+
+            <h1 class="text-5xl font-bold mb-4">
+                ¡Bienvenido a Coffee Haven!
+            </h1>
+
+            <p class="text-xl text-gray-200 mb-6">
+                Tu lugar favorito para el mejor café
+            </p>
+
+            <a href="{% url 'list_products' %}"
+               class="inline-block bg-[#5A85A8] hover:bg-[#44617A] px-7 py-3 rounded-lg font-semibold transition">
+                Ver Menú
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

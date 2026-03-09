@@ -1,0 +1,14 @@
+:root {
+  --primary-dark: #2F3D4C;
+  --primary: #44617A;
+  --accent: #5A85A8;
+  --light-blue: #D4E1EB;
+  --background: #F1F1F1;
+}
+.navbar_container,.nav-dropdown,footer{
+    background-color: var(--primary);
+}
+body {
+    background-color: var(--light-blue);
+    color: white;
+}
