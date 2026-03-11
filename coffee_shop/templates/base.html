@@ -46,9 +46,7 @@
                             </div>
                         </li>
 
-                        <li>
-                            <a class="text-white font-bold transition hover:text-gray-100/75 py-4" href="#">Blog</a>
-                        </li>
+                        
 
                         <li>
                             {% if user.is_authenticated %}
@@ -61,7 +59,7 @@
                                         <form method="post" action="{% url 'logout' %}">
                                             {% csrf_token %}
                                             <button class="block px-4 py-2 text-white font-bold rounded-md hover:text-gray-100/75 cursor-pointer">
-                                                Logout
+                                                Cerrar Sesión
                                             </button>
                                         </form>
                                     </div>
@@ -69,6 +67,15 @@
                             {% else %}
                                 <a class="text-white font-bold transition hover:text-gray-100/75 py-4" href="{% url 'login' %}">Login</a>
                             {% endif %}
+                        </li>
+
+                        
+                        <li>
+                            <a  class="bg-(--accent) text-white font-semibold px-5 py-2 rounded-lg 
+                                        hover:bg-(--light-blue) hover:text-(--primary) transition duration-300 shadow-sm cursor-pointer" 
+                                href="{% url 'my_order' %}">
+                                Mi Pedido
+                            </a>
                         </li>
 
                         </ul>

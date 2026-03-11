@@ -17,7 +17,7 @@ class ProductForm(forms.Form):
             raise forms.ValidationError("Este producto ya existe")
 
         return name
-    
+
     def save(self):
         Product.objects.create(
             name=self.cleaned_data["name"],

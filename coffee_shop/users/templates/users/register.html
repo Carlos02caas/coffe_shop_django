@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="mx-auto py-5 bg-[#2F3D4C]">
-    <h1 class="text-3xl font-bold uppercase text-center">Iniciar Sesión</h1>
+    <h1 class="text-3xl font-bold uppercase text-center">Registro</h1>
 </div>
 <div class="min-h-[calc(100vh-80px)] flex items-center justify-center bg-(--light-blue)">
 
@@ -17,20 +17,12 @@
             <button
                 class="w-full rounded-md border border-(--light-blue) bg-(--light-blue) px-8 py-3 text-sm font-medium text-(--primary) cursor-pointer transition hover:scale-[1.02] hover:shadow-lg hover:bg-(--primary) hover:text-(--light-blue)"
                 type="submit">
-                Login
+                Registrar
             </button>
 
         </form>
-        <p class="text-sm text-center mt-4 text-gray-600">
-            ¿No tienes cuenta?
-            <a href="{% url 'registro' %}" 
-            class="font-semibold text-[var(--light-blue)] hover:text-white">
-            Crear una cuenta
-            </a>
-        </p>
 
     </div>
-    
 
 </div>
 {% endblock content%}

@@ -40,11 +40,14 @@
                     ${{ product.price }}
                 </p>
             </div>
-            {% comment "" %}
-            <span class="text-center mx-2 mb-2 mt-4 block rounded-md border border-indigo-900 bg-indigo-900 px-5 py-3 text-sm font-medium tracking-widest text-white uppercase transition-colors hover:bg-white hover:text-indigo-900">
-                Ordenrar
-            </span>
-            {% endcomment %}
+            <form action="{% url "agregar-producto" %}" method="post" class="mt-4">
+                {% csrf_token %}
+                <input type="hidden" name="product" value="{{ product.id }}">
+                <button 
+                    class="cursor-pointer text-center mx-2 mb-2 mt-4 block rounded-md border border-indigo-900 bg-indigo-900 px-5 py-3 text-sm font-medium tracking-widest text-white uppercase transition-colors hover:bg-white hover:text-indigo-900">
+                    Ordenrar
+                </button>
+            </form>
             
         </a>
 

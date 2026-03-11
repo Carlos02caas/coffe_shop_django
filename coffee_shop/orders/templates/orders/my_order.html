@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mx-auto py-5 bg-(--primary-dark)">
+    <h1 class="text-3xl font-bold uppercase text-center">Orden de: {{ order.user.username }}</h1>
+    <h4 class="uppercase text-center">Fecha: {{ order.order_date|date }} </h4>
+</div>
+
+
+
+
+
+<div class="max-w-4xl mx-auto mt-10 bg-(--background) p-6 rounded-xl shadow">
+
+  <h2 class="text-2xl font-bold mb-6 text-(--primary-dark)">
+    Mi Pedido
+  </h2>
+
+  <table class="w-full border-collapse overflow-hidden rounded-lg">
+
+    <thead class="bg-[#44617A] text-white">
+      <tr>
+        <th class="p-3 text-left">Producto</th>
+        <th class="p-3 text-left">Precio</th>
+        <th class="p-3 text-left">Cantidad</th>
+        <th class="p-3 text-left">Total</th>
+      </tr>
+    </thead>
+
+    <tbody class="bg-white">
+
+      {% for product_order in order.orderproduct_set.all %}
+      <tr class="border-b hover:bg-(--light-blue) transition">
+        <td class="p-3 font-medium text-(--primary-dark)">
+          {{ product_order.product.name }}
+        </td>
+
+        <td class="p-3 text-(--accent)">
+          ${{ product_order.product.price }}
+        </td>
+
+        <td class="p-3 text-(--accent)">
+          {{ product_order.quantity }}
+        </td>
+
+        <td class="p-3 font-semibold text-(--primary)">
+          ${{ product_order.total_price }}
+        </td>
+      </tr>
+
+      {% empty %}
+      <tr>
+        <td colspan="4" class="text-center p-6 text-gray-500">
+          No hay productos en el pedido
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+
+  </table>
+
+  <!-- Totales -->
+
+  <div class="mt-6 flex justify-end">
+    <div class="w-72 space-y-2">
+
+      <div class="flex justify-between text-[#2F3D4C]">
+        <span>Subtotal</span>
+        <span>${{ order.subtotal|floatformat:2 }}</span>
+      </div>
+
+      <div class="flex justify-between text-[#2F3D4C]">
+        <span>IVA</span>
+        <span>${{ order.iva|floatformat:2 }}</span>
+      </div>
+
+      <div class="flex justify-between text-lg font-bold text-[#44617A] border-t pt-2">
+        <span>Total</span>
+        <span>${{ order.total|floatformat:2 }}</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}
